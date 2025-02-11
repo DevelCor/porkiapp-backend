@@ -15,7 +15,6 @@ class AuthController extends Controller
             'name'                  => 'required|string|max:255',
             'email'                 => 'required|string|email|max:255|unique:users',
             'password'              => 'required|string|min:8|confirmed',
-            'location'              => 'string|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -26,12 +25,15 @@ class AuthController extends Controller
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
-            'location' => $request->location,
         ]);
 
+        $token = $user->createToken('api-token')->plainTextToken;
+
         return response()->json([
-            'message' => 'User registered successfully',
-            'user'    => $user
+            'message'      => 'User registered successfully',
+            'user'         => $user,
+            'access_token' => $token,
+            'token_type'   => 'Bearer'
         ], 201);
     }
 
