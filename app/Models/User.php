@@ -46,4 +46,23 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function pigs()
+    {
+        return $this->hasMany(Pig::class);
+    }
+
+    public function farms()
+    {
+        return $this->belongsToMany(Farm::class, 'users_farms')
+                    ->withPivot('role')
+                    ->withTimestamps();
+    }
+
+    public function assignFarmRole($farm, $role = 'member')
+    {
+        $this->farms()->syncWithoutDetaching([
+            $farm->id => ['role' => $role],
+        ]);
+    }
 }
