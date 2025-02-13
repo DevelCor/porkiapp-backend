@@ -1,11 +1,260 @@
 {
 	"info": {
-		"_postman_id": "01600e0e-cc3e-4782-a9ea-dd1a9d63f0d7",
+		"_postman_id": "c6e616d5-012b-4bce-b4a3-f9088b47d183",
 		"name": "Porki App",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "33209900"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13528397"
 	},
 	"item": [
+		{
+			"name": "Pigs",
+			"item": [
+				{
+					"name": "Create pig",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|WrVlEW36PvY1sDUWyrTkszjPGL5ndHDPdtn7cWIrafaf4c16",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gender\": \"male\",\r\n    \"age\": 0,\r\n    \"weight\": 12.4,\r\n    \"user_id\": 1,\r\n    \"farm_id\": 1,\r\n    \"birth_code\": \"dacg1998\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pig/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pig",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create pig Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|WrVlEW36PvY1sDUWyrTkszjPGL5ndHDPdtn7cWIrafaf4c16",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gender\": \"female\",\r\n    \"age\": 0,\r\n    \"weight\": 12.4,\r\n    \"user_id\": 1,\r\n    \"farm_id\": 2,\r\n    \"birth_code\": \"dacg19982\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pig/update/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pig",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all pigs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|WrVlEW36PvY1sDUWyrTkszjPGL5ndHDPdtn7cWIrafaf4c16",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pig",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pig"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get pig by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|WrVlEW36PvY1sDUWyrTkszjPGL5ndHDPdtn7cWIrafaf4c16",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pig/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pig",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get pig by id Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|WrVlEW36PvY1sDUWyrTkszjPGL5ndHDPdtn7cWIrafaf4c16",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pig/delete/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pig",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "CREATE Users",
 			"request": {
@@ -31,7 +280,21 @@
 						}
 					}
 				},
-				"url": "http://127.0.0.1:8000/api/register"
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
 			},
 			"response": [
 				{
@@ -59,7 +322,21 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/register"
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
 					},
 					"status": "Created",
 					"code": 201,
@@ -124,7 +401,21 @@
 						}
 					}
 				},
-				"url": "http://127.0.0.1:8000/api/login"
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
 			},
 			"response": [
 				{
@@ -152,7 +443,21 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/login"
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
 					},
 					"status": "OK",
 					"code": 200,
@@ -197,9 +502,13 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": {
-						"token": "3|Dz39DsjUQ9Lpn67WbVdh7d3oEZObpvU7q0WXnc9fe57a5a35"
-					}
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|Dz39DsjUQ9Lpn67WbVdh7d3oEZObpvU7q0WXnc9fe57a5a35",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [
@@ -214,7 +523,21 @@
 						"type": "text"
 					}
 				],
-				"url": "http://127.0.0.1:8000/api/logout"
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
 			},
 			"response": []
 		},
@@ -223,9 +546,13 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": {
-						"token": "4|BmDCkktqVohBzIlkcEoMgIPA9kYcQTIHt3PBkU7zb20cbd66"
-					}
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|BmDCkktqVohBzIlkcEoMgIPA9kYcQTIHt3PBkU7zb20cbd66",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [
@@ -249,7 +576,21 @@
 						}
 					}
 				},
-				"url": "http://127.0.0.1:8000/api/farms"
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/farms",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"farms"
+					]
+				}
 			},
 			"response": [
 				{
@@ -277,7 +618,21 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/farms"
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/farms",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"farms"
+							]
+						}
 					},
 					"status": "Created",
 					"code": 201,
@@ -322,9 +677,13 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": {
-						"token": "4|BmDCkktqVohBzIlkcEoMgIPA9kYcQTIHt3PBkU7zb20cbd66"
-					}
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|BmDCkktqVohBzIlkcEoMgIPA9kYcQTIHt3PBkU7zb20cbd66",
+							"type": "string"
+						}
+					]
 				},
 				"method": "GET",
 				"header": [
@@ -339,7 +698,22 @@
 						"type": "text"
 					}
 				],
-				"url": "http://127.0.0.1:8000/api/users/me"
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users/me",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"me"
+					]
+				}
 			},
 			"response": [
 				{
@@ -358,7 +732,22 @@
 								"type": "text"
 							}
 						],
-						"url": "http://127.0.0.1:8000/api/users/me"
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/me",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
 					},
 					"status": "OK",
 					"code": 200,
@@ -403,9 +792,13 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": {
-						"token": "7|u4SFmd0X40NxUksqyXkr26hPfriRKd5aEg4mettW48e932de"
-					}
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7|u4SFmd0X40NxUksqyXkr26hPfriRKd5aEg4mettW48e932de",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [
@@ -429,7 +822,22 @@
 						}
 					}
 				},
-				"url": "http://127.0.0.1:8000/api/farms/join"
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/farms/join",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"farms",
+						"join"
+					]
+				}
 			},
 			"response": [
 				{
@@ -457,7 +865,22 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/farms/join"
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/farms/join",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"farms",
+								"join"
+							]
+						}
 					},
 					"status": "OK",
 					"code": 200,
