@@ -107,4 +107,23 @@ class PigController extends Controller
 
         return response()->json($data, 200);
     }
+
+    //delete pig
+    public function destroy($id)
+    {
+        $pig = Pig::find($id);
+
+        if (!$pig) {
+            return response()->json(['message' => 'Pig not found'], 404);
+        }
+
+        $pig->delete();
+
+        $data = [
+            'success' => true,
+            'message' => 'Pig deleted successfully',
+        ];
+
+        return response()->json($data, 200);
+    }
 }

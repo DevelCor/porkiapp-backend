@@ -21,11 +21,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/farms/join', [FarmController::class, 'join']);
 
 
-    // Farm routes
+    // pigs routes
+    //create pig
     Route::post('/pig/create', [PigController::class, 'store']);
+    //get all pigs
     Route::get('/pig', [PigController::class, 'index']);
     //get pig by id
     Route::get('/pig/{id}', [PigController::class, 'show']);
     //update pig
     Route::put('/pig/update/{id}', [PigController::class, 'update']);
+    //delete pig
+    Route::delete('/pig/delete/{id}', [PigController::class, 'destroy']);
 });
