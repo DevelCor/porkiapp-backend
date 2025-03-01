@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Farm;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,6 +16,7 @@ class AuthController extends Controller
             'name'                  => 'required|string|max:255',
             'email'                 => 'required|string|email|max:255|unique:users',
             'password'              => 'required|string|min:8|confirmed',
+            'invitation_code'       => 'nullable|string|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -28,6 +30,17 @@ class AuthController extends Controller
         ]);
 
         $token = $user->createToken('api-token')->plainTextToken;
+
+        //Si existe un codigo de granja se une de una vez...
+        if(!empty($request->invitation_code)){
+            $invitationCode = strtoupper($request->invitation_code);
+            $farm = Farm::where('invitation_code', $invitationCode)->first();
+
+            if (!$user->farms()->where('farm_id', $farm->id)->exists()) {
+                $user->assignFarmRole($farm, 'member');
+            }
+        }
+
 
         return response()->json([
             'message'      => 'User registered successfully',

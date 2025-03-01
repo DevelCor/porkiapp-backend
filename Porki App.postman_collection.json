@@ -232,6 +232,37 @@
 					"response": []
 				},
 				{
+					"name": "Update Event Inactive",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/events/:id/mark-inactive",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								":id",
+								"mark-inactive"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Delete Event",
 					"request": {
 						"method": "DELETE",
@@ -356,7 +387,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Pedro Soto\",\r\n    \"email\": \"pedro_soto@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Pedro Soto\",\r\n    \"email\": \"pedro_soto@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"password_confirmation\": \"12345678\",\r\n    \"invitation_code\": \"CZYCFR80\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
