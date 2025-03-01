@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pig;
+use App\Models\PigTreatment;
 use Illuminate\Http\Request;
 
 class PigController extends Controller
@@ -11,37 +12,39 @@ class PigController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'gender' => 'required|string',
-            'age' => 'required|integer',
-            'weight' => 'required|numeric',
+            'gender'    => 'required|string',
+            'age'       => 'required|integer',
+            'weight'    => 'required|numeric',
             'parent_id' => 'integer|exists:pigs,id',
-            'user_id' => 'required|exists:users,id',
-            'farm_id' => 'required|exists:farms,id',
-            'birth_code' => 'string'
+            'user_id'   => 'required|exists:users,id',
+            'farm_id'   => 'required|exists:farms,id',
+            'birth_code'=> 'string'
         ]);
 
         $pig = Pig::create([
-            'gender' => $request->gender,
-            'age' => $request->age,
-            'weight' => $request->weight,
+            'gender'    => $request->gender,
+            'age'       => $request->age,
+            'weight'    => $request->weight,
             'parent_id' => $request->parent_id,
-            'birth_code' => $request->birth_code,
-            'user_id' => $request->user_id,
-            'farm_id' => $request->farm_id,
+            'birth_code'=> $request->birth_code,
+            'user_id'   => $request->user_id,
+            'farm_id'   => $request->farm_id,
         ]);
 
         if (!$pig) {
             return response()->json(['message' => 'Error creating pig'], 500);
         }
 
+        // Aplicar el protocolo estándar (maneja recién nacidos y padrotes).
+        PigTreatment::applyStandardProtocol($pig);
+
         $data = [
             'success' => true,
             'message' => 'Pig created successfully',
-            'data' => $pig
+            'data'    => $pig
         ];
         return response()->json($data, 201);
     }
-
     //get all pigs
     public function index()
     {
@@ -82,12 +85,14 @@ class PigController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'gender' => 'string',
-            'age' => 'integer',
-            'weight' => 'numeric',
+            'gender'    => 'string',
+            'age'       => 'integer',
+            'weight'    => 'numeric',
             'parent_id' => 'integer|exists:pigs,id',
-            'user_id' => 'exists:users,id',
-            'farm_id' => 'exists:farms,id'
+            'user_id'   => 'exists:users,id',
+            'farm_id'   => 'exists:farms,id',
+            // Si quieres permitir 'postpartum' como booleano, puedes validarlo aquí:
+            'postpartum'=> 'boolean'
         ]);
 
         $pig = Pig::find($id);
@@ -96,13 +101,18 @@ class PigController extends Controller
             return response()->json(['message' => 'Pig not found'], 404);
         }
 
-        $pig = $pig->update($request->all());
-        $pig = Pig::find($id);
+        $pig->update($request->all());
+        $pig->refresh();
+
+        // Si es hembra y recibe la bandera postpartum = true, aplicar protocolo postparto
+        if ($request->has('postpartum') && $request->postpartum === true && $pig->gender === 'female') {
+            PigTreatment::applyPostpartumProtocol($pig);
+        }
 
         $data = [
             'success' => true,
             'message' => 'Pig updated successfully',
-            'data' => $pig
+            'data'    => $pig
         ];
 
         return response()->json($data, 200);

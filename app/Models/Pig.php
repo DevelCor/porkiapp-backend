@@ -8,8 +8,8 @@ class Pig extends Model
 {
     protected $fillable = [
         'gender',
-        'age',
         'weight',
+        'birth_date',
         'parent_id',
         'birth_code',
         'user_id',
@@ -26,7 +26,7 @@ class Pig extends Model
         return $this->belongsTo(Farm::class);
     }
 
-    // Relationship: Parent of the pig
+    // Relación: Cerdo padre
     public function parent()
     {
         return $this->belongsTo(Pig::class, 'parent_id');
@@ -35,5 +35,15 @@ class Pig extends Model
     public function children()
     {
         return $this->hasMany(Pig::class, 'parent_id');
+    }
+
+    public function treatments()
+    {
+        return $this->hasMany(PigTreatment::class);
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
     }
 }
