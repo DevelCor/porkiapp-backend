@@ -36,6 +36,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/pig/delete/{id}', [PigController::class, 'destroy']);
 
     Route::apiResource('events', EventController::class);
+    Route::put('events/{id}/mark-inactive', [EventController::class, 'setEventInactive']);
     
     // Treatment routes
     Route::get('/pig/{id}/treatments', [PigTreatmentController::class, 'getTreatmentsByPigId']);

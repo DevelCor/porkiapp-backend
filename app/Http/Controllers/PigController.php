@@ -18,7 +18,8 @@ class PigController extends Controller
             'parent_id' => 'integer|exists:pigs,id',
             'user_id'   => 'required|exists:users,id',
             'farm_id'   => 'required|exists:farms,id',
-            'birth_code'=> 'string'
+            'birth_code'=> 'string',
+            'birth_date' => 'date'
         ]);
 
         $pig = Pig::create([
@@ -29,6 +30,7 @@ class PigController extends Controller
             'birth_code'=> $request->birth_code,
             'user_id'   => $request->user_id,
             'farm_id'   => $request->farm_id,
+            'birth_date'   => $request->birth_date,
         ]);
 
         if (!$pig) {

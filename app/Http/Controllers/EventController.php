@@ -10,11 +10,10 @@ class EventController extends Controller
 {
     public function index(Request $request)
     {
-        $userFarmIds = $request->user()->farms()->pluck('farm_id');
-
-        $events = Event::whereIn('farm_id', $userFarmIds)
-                        ->with(['pig', 'treatment'])
-                        ->get();
+        $farmId = $request->farm_id;
+        $events = Event::where('farm_id', $farmId)
+                    ->where('active', true)
+                    ->with(['pig', 'treatment'])->get();
 
         return response()->json([
             'success' => true,
@@ -22,11 +21,35 @@ class EventController extends Controller
         ], 200);
     }
 
+    public function setEventInactive(Request $request, $id)
+    {
+        $event = Event::find($id);
+
+        if (!$event) {
+            return response()->json(['message' => 'Event not found'], 404);
+        }
+
+        if (!$request->user()->farms()->where('farm_id', $event->farm_id)->exists()) {
+            return response()->json(['message' => 'You are not a member of this farm'], 403);
+        }
+
+        $event->active = false;
+        $event->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Event set to inactive successfully',
+            'data'    => $event
+        ], 200);
+    }
+
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'message'       => 'required|string|max:255',
             'pig_id'        => 'nullable',
+            'treatment_id'  => 'nullable',
             'farm_id'       => 'required',
             'reminder_date' => 'required|date',
             'type'          => 'nullable|string|max:100',

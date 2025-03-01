@@ -48,7 +48,7 @@ class AuthController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->with('farms')->first();
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json(['message' => 'Invalid credentials'], 401);
         }
@@ -57,6 +57,7 @@ class AuthController extends Controller
 
         return response()->json([
             'access_token' => $token,
+            'data' => $user,
             'token_type'   => 'Bearer'
         ]);
     }
