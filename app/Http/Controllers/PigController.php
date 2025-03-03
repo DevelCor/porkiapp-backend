@@ -16,21 +16,19 @@ class PigController extends Controller
             'gender'    => 'required|string',
             'weight'    => 'required|numeric',
             'parent_id' => 'integer|exists:pigs,id',
-            'user_id'   => 'required|exists:users,id',
             'farm_id'   => 'required|exists:farms,id',
             'birth_code'=> 'string',
             'birth_date' => 'date'
         ]);
 
-        // $birthDateFormatted = Carbon::createFromFormat('d-m-Y', $request->birth_date)->format('Y-m-d');
-
+        $user = $request->user();
         $pig = Pig::create([
             'gender'    => $request->gender,
             'age'       => $request->age,
             'weight'    => $request->weight,
             'parent_id' => $request->parent_id,
             'birth_code'=> $request->birth_code,
-            'user_id'   => $request->user_id,
+            'user_id'   => $user->id,
             'farm_id'   => $request->farm_id,
             'birth_date'   => $request->birth_date,
         ]);
@@ -93,7 +91,6 @@ class PigController extends Controller
             'age'       => 'integer',
             'weight'    => 'numeric',
             'parent_id' => 'integer|exists:pigs,id',
-            'user_id'   => 'exists:users,id',
             'farm_id'   => 'exists:farms,id',
             // Si quieres permitir 'postpartum' como booleano, puedes validarlo aquí:
             'postpartum'=> 'boolean'

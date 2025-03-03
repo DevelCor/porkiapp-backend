@@ -44,11 +44,8 @@ class PigTreatment extends Model
 
     public static function applyStandardProtocol(Pig $pig)
     {
-        Log::info("applyStandardProtocol" . print_r($pig->birth_date, true));
-
         $daysOld = Carbon::parse($pig->birth_date)->diffInDays(Carbon::now());
         $daysOld = floor($daysOld);
-        Log::info("daysOld" . print_r($daysOld, true));
 
         $newbornProtocol = [
             ['day' => 1,  'name' => 'Hierro + Complejo B', 'dosage' => '' ],
@@ -71,7 +68,6 @@ class PigTreatment extends Model
 
         $protocolsToApply = [];
         if ($daysOld < 30) {
-            Log::info("protocolsToApply");
             $protocolsToApply = array_merge($protocolsToApply, $newbornProtocol);
         }
 
