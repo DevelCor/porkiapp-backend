@@ -11,6 +11,11 @@ class EventController extends Controller
     public function index(Request $request)
     {
         $farmId = $request->farm_id;
+        //validate 
+        if(empty($farmId)){
+            return response()->json(['message' => 'Missing farm id'], 400);
+        }
+
         $events = Event::where('farm_id', $farmId)
                     ->where('active', true)
                     ->with(['pig', 'treatment'])->get();

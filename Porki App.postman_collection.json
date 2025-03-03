@@ -15,7 +15,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "3|WrVlEW36PvY1sDUWyrTkszjPGL5ndHDPdtn7cWIrafaf4c16"
+								"token": "11|uE6WY7uKxAXJfW4lUB0WqjzLFWaKE7AziNTWqXMu5391a3d5"
 							}
 						},
 						"method": "POST",
@@ -33,7 +33,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"gender\": \"female\",\r\n    \"age\": 0,\r\n    \"weight\": 12.4,\r\n    \"user_id\": 1,\r\n    \"farm_id\": 2,\r\n    \"birth_code\": \"dacg19982\"\r\n}",
+							"raw": "{\r\n    \"gender\": \"female\",\r\n    \"weight\": 2,\r\n    \"user_id\": 1,\r\n    \"farm_id\": 3,\r\n    \"birth_code\": \"dacg19982\",\r\n    \"birth_date\": \"2025-03-03\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -42,7 +42,71 @@
 						},
 						"url": "http://127.0.0.1:8000/api/pig/create"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Create pig Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"gender\": \"female\",\r\n    \"weight\": 2,\r\n    \"user_id\": 1,\r\n    \"farm_id\": 3,\r\n    \"birth_code\": \"dacg19982\",\r\n    \"birth_date\": \"2025-03-03\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/pig/create"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Mar 2025 15:03:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Pig created successfully\",\n    \"data\": {\n        \"gender\": \"female\",\n        \"weight\": 2,\n        \"parent_id\": null,\n        \"birth_code\": \"dacg19982\",\n        \"user_id\": 1,\n        \"farm_id\": 3,\n        \"birth_date\": \"2025-03-03\",\n        \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n        \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n        \"id\": 7\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "get all pigs",
@@ -53,11 +117,17 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "3|WrVlEW36PvY1sDUWyrTkszjPGL5ndHDPdtn7cWIrafaf4c16"
+								"token": "11|uE6WY7uKxAXJfW4lUB0WqjzLFWaKE7AziNTWqXMu5391a3d5"
 							}
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -69,7 +139,66 @@
 						},
 						"url": "http://127.0.0.1:8000/api/pig"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "get all pigs",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/pig"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Mar 2025 15:05:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Pigs retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 7,\n            \"gender\": \"female\",\n            \"weight\": 2,\n            \"parent_id\": null,\n            \"birth_code\": \"dacg19982\",\n            \"user_id\": 1,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"birth_date\": \"2025-03-03\"\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "get pig by id",
@@ -80,11 +209,17 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "3|WrVlEW36PvY1sDUWyrTkszjPGL5ndHDPdtn7cWIrafaf4c16"
+								"token": "11|uE6WY7uKxAXJfW4lUB0WqjzLFWaKE7AziNTWqXMu5391a3d5"
 							}
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -94,12 +229,71 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/pig/1"
+						"url": "http://127.0.0.1:8000/api/pig/7"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "get pig by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/pig/7"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Mar 2025 15:11:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Pig retrieved successfully\",\n    \"data\": {\n        \"id\": 7,\n        \"gender\": \"female\",\n        \"weight\": 2,\n        \"parent_id\": null,\n        \"birth_code\": \"dacg19982\",\n        \"user_id\": 1,\n        \"farm_id\": 3,\n        \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n        \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n        \"birth_date\": \"2025-03-03\",\n        \"treatments\": [\n            {\n                \"id\": 1,\n                \"pig_id\": 7,\n                \"name\": \"Hierro + Complejo B\",\n                \"description\": \"Hierro + Complejo B - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            },\n            {\n                \"id\": 2,\n                \"pig_id\": 7,\n                \"name\": \"Hierro + Complejo B\",\n                \"description\": \"Hierro + Complejo B - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            },\n            {\n                \"id\": 3,\n                \"pig_id\": 7,\n                \"name\": \"Hierro + Complejo B\",\n                \"description\": \"Hierro + Complejo B - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            },\n            {\n                \"id\": 4,\n                \"pig_id\": 7,\n                \"name\": \"Hierro + Complejo B\",\n                \"description\": \"Hierro + Complejo B - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            },\n            {\n                \"id\": 5,\n                \"pig_id\": 7,\n                \"name\": \"Hierro + Complejo B\",\n                \"description\": \"Hierro + Complejo B - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            },\n            {\n                \"id\": 6,\n                \"pig_id\": 7,\n                \"name\": \"Albendazol\",\n                \"description\": \"Albendazol - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            },\n            {\n                \"id\": 7,\n                \"pig_id\": 7,\n                \"name\": \"Albendazol\",\n                \"description\": \"Albendazol - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            },\n            {\n                \"id\": 8,\n                \"pig_id\": 7,\n                \"name\": \"Albendazol\",\n                \"description\": \"Albendazol - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            },\n            {\n                \"id\": 9,\n                \"pig_id\": 7,\n                \"name\": \"Ivermectina\",\n                \"description\": \"Ivermectina - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				},
 				{
-					"name": "get pig by id Copy",
+					"name": "DELETE Pig",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -133,7 +327,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "3|WrVlEW36PvY1sDUWyrTkszjPGL5ndHDPdtn7cWIrafaf4c16"
+								"token": "11|uE6WY7uKxAXJfW4lUB0WqjzLFWaKE7AziNTWqXMu5391a3d5"
 							}
 						},
 						"method": "POST",
@@ -151,7 +345,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"gender\": \"male\",\r\n    \"age\": 0,\r\n    \"weight\": 12.4,\r\n    \"user_id\": 1,\r\n    \"farm_id\": 1,\r\n    \"birth_code\": \"dacg1998\"\r\n}",
+							"raw": "{\r\n    \"message\": \"Vender animal\",\r\n    \"pig_id\": 7,\r\n    \"farm_id\": 3,\r\n    \"reminder_date\": \"2024-03-03\",\r\n    \"type\": \"reminder\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -160,22 +354,181 @@
 						},
 						"url": "http://127.0.0.1:8000/api/events"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Create Event",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"message\": \"Vender animal\",\r\n    \"pig_id\": 7,\r\n    \"farm_id\": 3,\r\n    \"reminder_date\": \"2024-03-03\",\r\n    \"type\": \"reminder\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/events"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Mar 2025 15:22:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Event created successfully\",\n    \"data\": {\n        \"message\": \"Vender animal\",\n        \"pig_id\": 7,\n        \"farm_id\": 3,\n        \"reminder_date\": \"2024-03-03\",\n        \"type\": \"reminder\",\n        \"updated_at\": \"2025-03-03T15:22:46.000000Z\",\n        \"created_at\": \"2025-03-03T15:22:46.000000Z\",\n        \"id\": 10\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "GET Events",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "11|uE6WY7uKxAXJfW4lUB0WqjzLFWaKE7AziNTWqXMu5391a3d5"
+							}
+						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"farm_id\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": "http://127.0.0.1:8000/api/events"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "GET Events",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"farm_id\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/events"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Mar 2025 15:26:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"message\": \"Administrar tratamiento: Hierro + Complejo B\",\n            \"pig_id\": 7,\n            \"reminder_date\": \"2025-03-04\",\n            \"treatment_id\": 1,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"type\": \"automatic\",\n            \"active\": 1,\n            \"pig\": {\n                \"id\": 7,\n                \"gender\": \"female\",\n                \"weight\": 2,\n                \"parent_id\": null,\n                \"birth_code\": \"dacg19982\",\n                \"user_id\": 1,\n                \"farm_id\": 3,\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"birth_date\": \"2025-03-03\"\n            },\n            \"treatment\": {\n                \"id\": 1,\n                \"pig_id\": 7,\n                \"name\": \"Hierro + Complejo B\",\n                \"description\": \"Hierro + Complejo B - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"message\": \"Administrar tratamiento: Hierro + Complejo B\",\n            \"pig_id\": 7,\n            \"reminder_date\": \"2025-03-06\",\n            \"treatment_id\": 2,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"type\": \"automatic\",\n            \"active\": 1,\n            \"pig\": {\n                \"id\": 7,\n                \"gender\": \"female\",\n                \"weight\": 2,\n                \"parent_id\": null,\n                \"birth_code\": \"dacg19982\",\n                \"user_id\": 1,\n                \"farm_id\": 3,\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"birth_date\": \"2025-03-03\"\n            },\n            \"treatment\": {\n                \"id\": 2,\n                \"pig_id\": 7,\n                \"name\": \"Hierro + Complejo B\",\n                \"description\": \"Hierro + Complejo B - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"message\": \"Administrar tratamiento: Hierro + Complejo B\",\n            \"pig_id\": 7,\n            \"reminder_date\": \"2025-03-10\",\n            \"treatment_id\": 3,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"type\": \"automatic\",\n            \"active\": 1,\n            \"pig\": {\n                \"id\": 7,\n                \"gender\": \"female\",\n                \"weight\": 2,\n                \"parent_id\": null,\n                \"birth_code\": \"dacg19982\",\n                \"user_id\": 1,\n                \"farm_id\": 3,\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"birth_date\": \"2025-03-03\"\n            },\n            \"treatment\": {\n                \"id\": 3,\n                \"pig_id\": 7,\n                \"name\": \"Hierro + Complejo B\",\n                \"description\": \"Hierro + Complejo B - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"message\": \"Administrar tratamiento: Hierro + Complejo B\",\n            \"pig_id\": 7,\n            \"reminder_date\": \"2025-03-17\",\n            \"treatment_id\": 4,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"type\": \"automatic\",\n            \"active\": 1,\n            \"pig\": {\n                \"id\": 7,\n                \"gender\": \"female\",\n                \"weight\": 2,\n                \"parent_id\": null,\n                \"birth_code\": \"dacg19982\",\n                \"user_id\": 1,\n                \"farm_id\": 3,\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"birth_date\": \"2025-03-03\"\n            },\n            \"treatment\": {\n                \"id\": 4,\n                \"pig_id\": 7,\n                \"name\": \"Hierro + Complejo B\",\n                \"description\": \"Hierro + Complejo B - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"message\": \"Administrar tratamiento: Hierro + Complejo B\",\n            \"pig_id\": 7,\n            \"reminder_date\": \"2025-04-02\",\n            \"treatment_id\": 5,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"type\": \"automatic\",\n            \"active\": 1,\n            \"pig\": {\n                \"id\": 7,\n                \"gender\": \"female\",\n                \"weight\": 2,\n                \"parent_id\": null,\n                \"birth_code\": \"dacg19982\",\n                \"user_id\": 1,\n                \"farm_id\": 3,\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"birth_date\": \"2025-03-03\"\n            },\n            \"treatment\": {\n                \"id\": 5,\n                \"pig_id\": 7,\n                \"name\": \"Hierro + Complejo B\",\n                \"description\": \"Hierro + Complejo B - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            }\n        },\n        {\n            \"id\": 6,\n            \"message\": \"Administrar tratamiento: Albendazol\",\n            \"pig_id\": 7,\n            \"reminder_date\": \"2025-03-10\",\n            \"treatment_id\": 6,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"type\": \"automatic\",\n            \"active\": 1,\n            \"pig\": {\n                \"id\": 7,\n                \"gender\": \"female\",\n                \"weight\": 2,\n                \"parent_id\": null,\n                \"birth_code\": \"dacg19982\",\n                \"user_id\": 1,\n                \"farm_id\": 3,\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"birth_date\": \"2025-03-03\"\n            },\n            \"treatment\": {\n                \"id\": 6,\n                \"pig_id\": 7,\n                \"name\": \"Albendazol\",\n                \"description\": \"Albendazol - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            }\n        },\n        {\n            \"id\": 7,\n            \"message\": \"Administrar tratamiento: Albendazol\",\n            \"pig_id\": 7,\n            \"reminder_date\": \"2025-03-17\",\n            \"treatment_id\": 7,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"type\": \"automatic\",\n            \"active\": 1,\n            \"pig\": {\n                \"id\": 7,\n                \"gender\": \"female\",\n                \"weight\": 2,\n                \"parent_id\": null,\n                \"birth_code\": \"dacg19982\",\n                \"user_id\": 1,\n                \"farm_id\": 3,\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"birth_date\": \"2025-03-03\"\n            },\n            \"treatment\": {\n                \"id\": 7,\n                \"pig_id\": 7,\n                \"name\": \"Albendazol\",\n                \"description\": \"Albendazol - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            }\n        },\n        {\n            \"id\": 8,\n            \"message\": \"Administrar tratamiento: Albendazol\",\n            \"pig_id\": 7,\n            \"reminder_date\": \"2025-03-31\",\n            \"treatment_id\": 8,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"type\": \"automatic\",\n            \"active\": 1,\n            \"pig\": {\n                \"id\": 7,\n                \"gender\": \"female\",\n                \"weight\": 2,\n                \"parent_id\": null,\n                \"birth_code\": \"dacg19982\",\n                \"user_id\": 1,\n                \"farm_id\": 3,\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"birth_date\": \"2025-03-03\"\n            },\n            \"treatment\": {\n                \"id\": 8,\n                \"pig_id\": 7,\n                \"name\": \"Albendazol\",\n                \"description\": \"Albendazol - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            }\n        },\n        {\n            \"id\": 9,\n            \"message\": \"Administrar tratamiento: Ivermectina\",\n            \"pig_id\": 7,\n            \"reminder_date\": \"2025-04-02\",\n            \"treatment_id\": 9,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"type\": \"automatic\",\n            \"active\": 1,\n            \"pig\": {\n                \"id\": 7,\n                \"gender\": \"female\",\n                \"weight\": 2,\n                \"parent_id\": null,\n                \"birth_code\": \"dacg19982\",\n                \"user_id\": 1,\n                \"farm_id\": 3,\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"birth_date\": \"2025-03-03\"\n            },\n            \"treatment\": {\n                \"id\": 9,\n                \"pig_id\": 7,\n                \"name\": \"Ivermectina\",\n                \"description\": \"Ivermectina - \",\n                \"dosage\": \"\",\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"status\": \"pending\"\n            }\n        },\n        {\n            \"id\": 10,\n            \"message\": \"Vender animal\",\n            \"pig_id\": 7,\n            \"reminder_date\": \"2024-03-03\",\n            \"treatment_id\": null,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:22:46.000000Z\",\n            \"updated_at\": \"2025-03-03T15:22:46.000000Z\",\n            \"type\": \"reminder\",\n            \"active\": 1,\n            \"pig\": {\n                \"id\": 7,\n                \"gender\": \"female\",\n                \"weight\": 2,\n                \"parent_id\": null,\n                \"birth_code\": \"dacg19982\",\n                \"user_id\": 1,\n                \"farm_id\": 3,\n                \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n                \"birth_date\": \"2025-03-03\"\n            },\n            \"treatment\": null\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "GET Event By ID",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "11|uE6WY7uKxAXJfW4lUB0WqjzLFWaKE7AziNTWqXMu5391a3d5"
+							}
+						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/events/:id",
 							"protocol": "http",
@@ -194,18 +547,104 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "1"
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "GET Event By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/events/:id",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"events",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Mar 2025 15:23:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"message\": \"Administrar tratamiento: Hierro + Complejo B\",\n        \"pig_id\": 7,\n        \"reminder_date\": \"2025-03-04\",\n        \"treatment_id\": 1,\n        \"farm_id\": 3,\n        \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n        \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n        \"type\": \"automatic\",\n        \"active\": 1,\n        \"pig\": {\n            \"id\": 7,\n            \"gender\": \"female\",\n            \"weight\": 2,\n            \"parent_id\": null,\n            \"birth_code\": \"dacg19982\",\n            \"user_id\": 1,\n            \"farm_id\": 3,\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"birth_date\": \"2025-03-03\"\n        },\n        \"treatment\": {\n            \"id\": 1,\n            \"pig_id\": 7,\n            \"name\": \"Hierro + Complejo B\",\n            \"description\": \"Hierro + Complejo B - \",\n            \"dosage\": \"\",\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"status\": \"pending\"\n        }\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Event",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "11|uE6WY7uKxAXJfW4lUB0WqjzLFWaKE7AziNTWqXMu5391a3d5"
+							}
+						},
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"Administrar tratamiento: Hierro + Complejo B __\",\r\n    \"pig_id\": 7,\r\n    \"farm_id\": 3,\r\n    \"reminder_date\": \"2024-03-03\",\r\n    \"type\": \"reminder\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/events/:id",
 							"protocol": "http",
@@ -224,18 +663,104 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "1"
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update Event",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"message\": \"Administrar tratamiento: Hierro + Complejo B __\",\r\n    \"pig_id\": 7,\r\n    \"farm_id\": 3,\r\n    \"reminder_date\": \"2024-03-03\",\r\n    \"type\": \"reminder\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/events/:id",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"events",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Mar 2025 15:26:59 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Event updated successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"message\": \"Administrar tratamiento: Hierro + Complejo B __\",\n        \"pig_id\": 7,\n        \"reminder_date\": \"2024-03-03\",\n        \"treatment_id\": 1,\n        \"farm_id\": 3,\n        \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n        \"updated_at\": \"2025-03-03T15:26:59.000000Z\",\n        \"type\": \"reminder\",\n        \"active\": 1\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Event Inactive",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "11|uE6WY7uKxAXJfW4lUB0WqjzLFWaKE7AziNTWqXMu5391a3d5"
+							}
+						},
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/events/:id/mark-inactive",
 							"protocol": "http",
@@ -255,12 +780,84 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "1"
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update Event Inactive",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/events/:id/mark-inactive",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"events",
+										":id",
+										"mark-inactive"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Mar 2025 15:27:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Event set to inactive successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"message\": \"Administrar tratamiento: Hierro + Complejo B __\",\n        \"pig_id\": 7,\n        \"reminder_date\": \"2024-03-03\",\n        \"treatment_id\": 1,\n        \"farm_id\": 3,\n        \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n        \"updated_at\": \"2025-03-03T15:27:34.000000Z\",\n        \"type\": \"reminder\",\n        \"active\": false\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete Event",
@@ -300,15 +897,101 @@
 				{
 					"name": "CREATE Treatments",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "11|uE6WY7uKxAXJfW4lUB0WqjzLFWaKE7AziNTWqXMu5391a3d5"
+							}
+						},
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pig_id\": 7,\r\n    \"name\": \"Desparazitante\",\r\n    \"description\": \"Aplicar por la mañana\",\r\n    \"dosage\": \"1\",\r\n    \"status\": \"administered\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": "http://127.0.0.1:8000/api/treatments"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "CREATE Treatments",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pig_id\": 7,\r\n    \"name\": \"Desparazitante\",\r\n    \"description\": \"Aplicar por la mañana\",\r\n    \"dosage\": \"1\",\r\n    \"status\": \"administered\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/treatments"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Mar 2025 15:20:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Treatment created successfully\",\n    \"data\": {\n        \"pig_id\": 7,\n        \"name\": \"Desparazitante\",\n        \"description\": \"Aplicar por la mañana\",\n        \"dosage\": \"1\",\n        \"status\": \"administered\",\n        \"updated_at\": \"2025-03-03T15:20:35.000000Z\",\n        \"created_at\": \"2025-03-03T15:20:35.000000Z\",\n        \"id\": 10\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "GET Treatments by PigId",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "11|uE6WY7uKxAXJfW4lUB0WqjzLFWaKE7AziNTWqXMu5391a3d5"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -330,12 +1013,78 @@
 							"variable": [
 								{
 									"key": "pigID",
-									"value": ""
+									"value": "7"
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "GET Treatments by PigId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/pig/:pigID/treatments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"pig",
+										":pigID",
+										"treatments"
+									],
+									"variable": [
+										{
+											"key": "pigID",
+											"value": "7"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Mar 2025 15:16:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"pig_id\": 7,\n            \"name\": \"Hierro + Complejo B\",\n            \"description\": \"Hierro + Complejo B - \",\n            \"dosage\": \"\",\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"status\": \"pending\"\n        },\n        {\n            \"id\": 2,\n            \"pig_id\": 7,\n            \"name\": \"Hierro + Complejo B\",\n            \"description\": \"Hierro + Complejo B - \",\n            \"dosage\": \"\",\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"status\": \"pending\"\n        },\n        {\n            \"id\": 3,\n            \"pig_id\": 7,\n            \"name\": \"Hierro + Complejo B\",\n            \"description\": \"Hierro + Complejo B - \",\n            \"dosage\": \"\",\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"status\": \"pending\"\n        },\n        {\n            \"id\": 4,\n            \"pig_id\": 7,\n            \"name\": \"Hierro + Complejo B\",\n            \"description\": \"Hierro + Complejo B - \",\n            \"dosage\": \"\",\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"status\": \"pending\"\n        },\n        {\n            \"id\": 5,\n            \"pig_id\": 7,\n            \"name\": \"Hierro + Complejo B\",\n            \"description\": \"Hierro + Complejo B - \",\n            \"dosage\": \"\",\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"status\": \"pending\"\n        },\n        {\n            \"id\": 6,\n            \"pig_id\": 7,\n            \"name\": \"Albendazol\",\n            \"description\": \"Albendazol - \",\n            \"dosage\": \"\",\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"status\": \"pending\"\n        },\n        {\n            \"id\": 7,\n            \"pig_id\": 7,\n            \"name\": \"Albendazol\",\n            \"description\": \"Albendazol - \",\n            \"dosage\": \"\",\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"status\": \"pending\"\n        },\n        {\n            \"id\": 8,\n            \"pig_id\": 7,\n            \"name\": \"Albendazol\",\n            \"description\": \"Albendazol - \",\n            \"dosage\": \"\",\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"status\": \"pending\"\n        },\n        {\n            \"id\": 9,\n            \"pig_id\": 7,\n            \"name\": \"Ivermectina\",\n            \"description\": \"Ivermectina - \",\n            \"dosage\": \"\",\n            \"created_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"updated_at\": \"2025-03-03T15:03:42.000000Z\",\n            \"status\": \"pending\"\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Treatment",

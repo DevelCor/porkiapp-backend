@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\Models\Event;
+use Illuminate\Support\Facades\Log;
 
 class PigTreatment extends Model
 {
@@ -19,6 +20,10 @@ class PigTreatment extends Model
         'description',
         'dosage',
         'status', // 'pending' o 'administered'
+    ];
+
+    protected $casts = [
+        'birth_date' => 'date',
     ];
 
     /**
@@ -39,7 +44,12 @@ class PigTreatment extends Model
 
     public static function applyStandardProtocol(Pig $pig)
     {
+        Log::info("applyStandardProtocol" . print_r($pig->birth_date, true));
+
         $daysOld = Carbon::parse($pig->birth_date)->diffInDays(Carbon::now());
+        $daysOld = floor($daysOld);
+        Log::info("daysOld" . print_r($daysOld, true));
+
         $newbornProtocol = [
             ['day' => 1,  'name' => 'Hierro + Complejo B', 'dosage' => '' ],
             ['day' => 3,  'name' => 'Hierro + Complejo B', 'dosage' => '' ],
@@ -61,6 +71,7 @@ class PigTreatment extends Model
 
         $protocolsToApply = [];
         if ($daysOld < 30) {
+            Log::info("protocolsToApply");
             $protocolsToApply = array_merge($protocolsToApply, $newbornProtocol);
         }
 

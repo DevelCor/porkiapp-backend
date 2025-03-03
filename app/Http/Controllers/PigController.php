@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pig;
 use App\Models\PigTreatment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PigController extends Controller
@@ -13,7 +14,6 @@ class PigController extends Controller
     {
         $request->validate([
             'gender'    => 'required|string',
-            'age'       => 'required|integer',
             'weight'    => 'required|numeric',
             'parent_id' => 'integer|exists:pigs,id',
             'user_id'   => 'required|exists:users,id',
@@ -21,6 +21,8 @@ class PigController extends Controller
             'birth_code'=> 'string',
             'birth_date' => 'date'
         ]);
+
+        // $birthDateFormatted = Carbon::createFromFormat('d-m-Y', $request->birth_date)->format('Y-m-d');
 
         $pig = Pig::create([
             'gender'    => $request->gender,
@@ -68,7 +70,7 @@ class PigController extends Controller
     //get pig by id
     public function show($id)
     {
-        $pig = Pig::find($id);
+        $pig = Pig::with('treatments')->find($id);
 
         if (!$pig) {
             return response()->json(['message' => 'Pig not found'], 404);
