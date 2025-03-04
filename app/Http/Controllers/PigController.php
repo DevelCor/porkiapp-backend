@@ -47,13 +47,20 @@ class PigController extends Controller
         ];
         return response()->json($data, 201);
     }
-    //get all pigs
-    public function index()
-    {
-        $pigs = Pig::all();
 
-        if (!$pigs) {
-            return response()->json(['message' => 'Pigs not found'], 404);
+    //get all pigs or filter by farm_id
+    public function index(Request $request)
+    {
+        $query = Pig::query();
+
+        if ($request->has('farm_id')) {
+            $query->where('farm_id', $request->farm_id);
+        }
+
+        $pigs = $query->get();
+
+        if ($pigs->isEmpty()) {
+            return response()->json(['message' => 'No pigs found'], 404);
         }
 
         $data = [
@@ -64,6 +71,7 @@ class PigController extends Controller
 
         return response()->json($data, 200);
     }
+
 
     //get pig by id
     public function show($id)
