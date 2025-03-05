@@ -15,7 +15,7 @@ class PigController extends Controller
         $request->validate([
             'gender'    => 'required|string',
             'weight'    => 'required|numeric',
-            'parent_id' => 'integer|exists:pigs,id',
+            'parent_id' => 'nullable|integer|exists:pigs,id',
             'farm_id'   => 'required|exists:farms,id',
             'birth_date' => 'date'
         ]);
