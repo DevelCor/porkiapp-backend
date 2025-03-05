@@ -41,6 +41,10 @@ class AuthController extends Controller
             }
         }
 
+        // Refresh user data
+        $user->refresh();
+        $user->farms;
+
         return response()->json([
             'message'      => 'User registered successfully',
             'user'         => $user,
