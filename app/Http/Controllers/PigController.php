@@ -71,7 +71,7 @@ class PigController extends Controller
     //get all pigs or filter by farm_id
     public function index(Request $request)
     {
-        $query = Pig::query();
+        $query = Pig::with('parent');
 
         if ($request->has('farm_id')) {
             $query->where('farm_id', $request->farm_id);
@@ -83,33 +83,69 @@ class PigController extends Controller
             return response()->json(['message' => 'No pigs found'], 404);
         }
 
+        // Transformar la colección para incluir parent_id y parent_code
+        $transformedPigs = $pigs->map(function ($pig) {
+            return [
+                'id'          => $pig->id,
+                'gender'      => $pig->gender,
+                'weight'      => $pig->weight,
+                'birth_date'  => $pig->birth_date,
+                'birth_code'  => $pig->birth_code,
+                'parent_id'   => $pig->parent_id,
+                'parent_code' => optional($pig->parent)->birth_code, // Evita error si no hay padre
+                'user_id'     => $pig->user_id,
+                'farm_id'     => $pig->farm_id,
+                'created_at'  => $pig->created_at,
+                'updated_at'  => $pig->updated_at,
+            ];
+        });
+
         $data = [
             'success' => true,
             'message' => 'Pigs retrieved successfully',
-            'data' => $pigs
+            'data'    => $transformedPigs
         ];
 
         return response()->json($data, 200);
     }
+
 
 
     //get pig by id
     public function show($id)
     {
-        $pig = Pig::with('treatments')->find($id);
+        // Cargamos también 'parent' para poder obtener el birth_code del padre
+        $pig = Pig::with(['treatments', 'parent'])->find($id);
 
         if (!$pig) {
             return response()->json(['message' => 'Pig not found'], 404);
         }
 
+        // Transformar el objeto pig para incluir parent_id y parent_code
+        $transformedPig = [
+            'id'          => $pig->id,
+            'gender'      => $pig->gender,
+            'weight'      => $pig->weight,
+            'birth_date'  => $pig->birth_date,
+            'birth_code'  => $pig->birth_code,
+            'parent_id'   => $pig->parent_id,
+            'parent_code' => optional($pig->parent)->birth_code,
+            'user_id'     => $pig->user_id,
+            'farm_id'     => $pig->farm_id,
+            'created_at'  => $pig->created_at,
+            'updated_at'  => $pig->updated_at,
+            'treatments'  => $pig->treatments,
+        ];
+
         $data = [
             'success' => true,
             'message' => 'Pig retrieved successfully',
-            'data' => $pig
+            'data'    => $transformedPig
         ];
 
         return response()->json($data, 200);
     }
+
 
     //update pig
     public function update(Request $request, $id)
