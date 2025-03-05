@@ -17,9 +17,13 @@ class PigController extends Controller
             'weight'    => 'required|numeric',
             'parent_id' => 'integer|exists:pigs,id',
             'farm_id'   => 'required|exists:farms,id',
-            'birth_code'=> 'string',
             'birth_date' => 'date'
         ]);
+
+        // Generar un birth_code único
+        do {
+            $birthCode = $this->generateBirthCode();
+        } while (Pig::where('birth_code', $birthCode)->exists());
 
         $user = $request->user();
         $pig = Pig::create([
@@ -27,7 +31,7 @@ class PigController extends Controller
             'age'       => $request->age,
             'weight'    => $request->weight,
             'parent_id' => $request->parent_id,
-            'birth_code'=> $request->birth_code,
+            'birth_code'=> $birthCode,
             'user_id'   => $user->id,
             'farm_id'   => $request->farm_id,
             'birth_date'   => $request->birth_date,
@@ -37,7 +41,6 @@ class PigController extends Controller
             return response()->json(['message' => 'Error creating pig'], 500);
         }
 
-        // Aplicar el protocolo estándar (maneja recién nacidos y padrotes).
         PigTreatment::applyStandardProtocol($pig);
 
         $data = [
@@ -46,6 +49,23 @@ class PigController extends Controller
             'data'    => $pig
         ];
         return response()->json($data, 201);
+    }
+
+    /**
+     * Genera un código aleatorio de 10 caracteres (números y letras).
+     *
+     * @return string
+     */
+    private function generateBirthCode()
+    {
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $code = '';
+
+        for ($i = 0; $i < 10; $i++) {
+            $code .= $characters[rand(0, strlen($characters) - 1)];
+        }
+
+        return $code;
     }
 
     //get all pigs or filter by farm_id

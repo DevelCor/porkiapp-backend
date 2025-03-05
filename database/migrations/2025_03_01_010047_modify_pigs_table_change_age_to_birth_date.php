@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('pigs', function (Blueprint $table) {
-            $table->date('birth_date');
+            $table->date('birth_date')->nullable();
             $table->dropColumn('age');
         });
     }
